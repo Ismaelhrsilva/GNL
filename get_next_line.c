@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 20:20:19 by ishenriq          #+#    #+#             */
-/*   Updated: 2023/11/08 19:42:38 by ishenriq         ###   ########.org.br   */
+/*   Updated: 2023/11/08 20:19:39 by ishenriq         ###   ########.org.br   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	ft_construct_list(char *str, t_list **head)
 
 	out = 0;
 	i = 0;
-	while (i < BUFFER_SIZE)
+	while (str[i])
 	{
 		if (str[i] == '\n')
 			out = 1;
@@ -90,7 +90,9 @@ char	*get_next_line(int fd)
 		return (0);
 	while (out == 0)
 	{
-		if (fd < 0 || read(fd, buffer, BUFFER_SIZE) <= 0)
+		int read_i = read(fd, buffer, BUFFER_SIZE);
+
+		if (fd < 0 || read_i  <= 0)
 		{
 			//free(buffer);
 			break;
