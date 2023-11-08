@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 20:20:19 by ishenriq          #+#    #+#             */
-/*   Updated: 2023/11/08 19:29:55 by ishenriq         ###   ########.org.br   */
+/*   Updated: 2023/11/08 19:42:38 by ishenriq         ###   ########.org.br   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ char	*ft_build_str(t_list **head)
 	int	i;
 	int	len_list_until_nl;
 
+	if (!*head)
+		return (0);
 	len_list_until_nl = ft_lstsize(*head);
 	i = 0;
 	gnl = calloc(len_list_until_nl + 1, sizeof(char));	
