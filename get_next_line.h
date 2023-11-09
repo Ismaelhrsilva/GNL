@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 20:21:26 by ishenriq          #+#    #+#             */
-/*   Updated: 2023/11/08 19:50:52 by ishenriq         ###   ########.org.br   */
+/*   Updated: 2023/11/08 20:50:33 by ishenriq         ###   ########.org.br   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 #ifndef BUFFER_SIZE
-# define BUFFER_SIZE 42
+# define BUFFER_SIZE 1
 # endif
 
 #include <unistd.h>

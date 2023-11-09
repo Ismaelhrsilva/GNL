@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 20:20:55 by ishenriq          #+#    #+#             */
-/*   Updated: 2023/11/08 20:38:44 by ishenriq         ###   ########.org.br   */
+/*   Updated: 2023/11/08 20:50:18 by ishenriq         ###   ########.org.br   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(void)
 	int	fd;
 	char	*line;
 
-	fd = open("41_with_nl", O_RDONLY);
+	fd = open("1char.txt", O_RDONLY);
 	if (fd < 0)
 		printf("Erro ao abrir");
 	line = get_next_line(fd);

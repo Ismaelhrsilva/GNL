@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 20:20:19 by ishenriq          #+#    #+#             */
-/*   Updated: 2023/11/08 20:48:20 by ishenriq         ###   ########.org.br   */
+/*   Updated: 2023/11/08 20:59:54 by ishenriq         ###   ########.org.br   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,21 @@ void	ft_lstclear(t_list **lst, int size)
 
 	if (!lst || size == 0)
 		return ;
+
 	head = *lst;
 	next = *lst;
+	if (size == -1)
+	{
+		while (head)
+		{
+			head = head->next;
+			free(next);
+			next = head;
+		}
+	}
 	while (size > 0)
 	{
 		head = head->next;
-		//free(&(next->content));
 		free(next);
 		next = head;
 		size--;
@@ -92,12 +101,14 @@ char	*get_next_line(int fd)
 	{
 		int read_i = read(fd, buffer, BUFFER_SIZE);
 
-		if (fd < 0 || read_i  <= 0)
+		if (fd < 0 || read_i < 0)
 		{
-			//free(buffer);
-			break;
-			//return (0);
+			ft_lstclear(&head, -1);
+			free(buffer);
+			return (0);
 		}
+		if (read_i == 0)
+			break;
 		if (ft_construct_list(buffer, &head, read_i) == 1)
 			out = 1;
 	}
