@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 20:21:26 by ishenriq          #+#    #+#             */
-/*   Updated: 2023/11/08 20:50:33 by ishenriq         ###   ########.org.br   */
+/*   Updated: 2023/11/11 18:22:39 by ishenriq         ###   ########.org.br   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,10 @@ typedef struct s_list
 	struct s_list	*next;
 } t_list;
 
-
 char	*get_next_line(int fd);
 t_list	*ft_lstnew(void *content);
 t_list	*ft_lstlast(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 int	ft_lstsize(t_list *lst);
-int	ft_strlen(const char *s, int size);
 
 #endif

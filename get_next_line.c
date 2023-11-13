@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 20:20:19 by ishenriq          #+#    #+#             */
-/*   Updated: 2023/11/08 20:59:54 by ishenriq         ###   ########.org.br   */
+/*   Updated: 2023/11/11 20:05:56 by ishenriq         ###   ########.org.br   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ int	ft_construct_list(char *str, t_list **head, int size_line)
 			out = 1;
 		content = ft_lstnew(&str[i]);
 		ft_lstadd_back(head, content);
-		//str[i] = '\0';
 		i++;
 	}
 	return (out);
@@ -69,7 +68,7 @@ char	*ft_build_str(t_list **head)
 	int	len_list_until_nl;
 
 	if (!*head)
-		return (0);
+		return (NULL);
 	len_list_until_nl = ft_lstsize(*head);
 	i = 0;
 	gnl = calloc(len_list_until_nl + 1, sizeof(char));	
@@ -92,23 +91,25 @@ char	*get_next_line(int fd)
 	int	out;
 	int	len;
 	char	*str;
+	int read_i;
 
 	out = 0;
+	read_i = 0;
+	str = 0;
 	buffer = calloc(BUFFER_SIZE, sizeof(char));
 	if (buffer == 0)
 		return (0);
 	while (out == 0)
 	{
-		int read_i = read(fd, buffer, BUFFER_SIZE);
-
-		if (fd < 0 || read_i < 0)
+		if (fd < 0 || read_i < 0 || BUFFER_SIZE <= 0)
 		{
 			ft_lstclear(&head, -1);
 			free(buffer);
-			return (0);
+			return (NULL);
 		}
+		read_i = read(fd, buffer, BUFFER_SIZE);
 		if (read_i == 0)
-			break;
+			break ;
 		if (ft_construct_list(buffer, &head, read_i) == 1)
 			out = 1;
 	}
