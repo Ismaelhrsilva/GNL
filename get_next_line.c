@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 20:20:19 by ishenriq          #+#    #+#             */
-/*   Updated: 2023/11/11 20:05:56 by ishenriq         ###   ########.org.br   */
+/*   Updated: 2023/11/13 19:04:03 by ishenriq         ###   ########.org.br   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ char	*ft_build_str(t_list **head)
 		return (NULL);
 	len_list_until_nl = ft_lstsize(*head);
 	i = 0;
-	gnl = calloc(len_list_until_nl + 1, sizeof(char));	
+	gnl = malloc((len_list_until_nl + 1) * sizeof(char));	
 	if (gnl == 0)
 		return (0);
 	while (len_list_until_nl--)
@@ -96,7 +96,7 @@ char	*get_next_line(int fd)
 	out = 0;
 	read_i = 0;
 	str = 0;
-	buffer = calloc(BUFFER_SIZE, sizeof(char));
+	buffer = malloc(BUFFER_SIZE * sizeof(char));
 	if (buffer == 0)
 		return (0);
 	while (out == 0)
