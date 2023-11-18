@@ -6,7 +6,7 @@
 /*   By: ishenriq <ishenriq@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 18:01:40 by ishenriq          #+#    #+#             */
-/*   Updated: 2023/11/15 18:44:03 by ishenriq         ###   ########.org.br   */
+/*   Updated: 2023/11/18 18:37:51 by ishenriq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 
 typedef struct s_array
 {
-	int	fd;
-	struct s_list 	*list;
+	int				fd;
+	struct s_list	*list;
 	struct s_array	*next;
 }	t_array;
 
@@ -37,6 +37,7 @@ char	*get_next_line(int fd);
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
-t_array	*ft_verify_and_create_array_list(int fd, t_array **array_list);
+void	ft_remove_t_array(int fd, t_array **array_list);
+void	ft_lstclear(t_list **lst, int size);
 
 #endif
